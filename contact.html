@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | ADIL CHBANI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --primary-color: #1e40af;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --success-color: #059669;
+            --warning-color: #f59e0b;
+            --error-color: #dc2626;
+            --dark-bg: #0a0f1c;
+            --darker-bg: #050810;
+            --card-bg: rgba(30, 64, 175, 0.05);
+            --card-border: rgba(30, 64, 175, 0.15);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            --shadow-primary: 0 20px 40px rgba(30, 64, 175, 0.15);
+            --shadow-secondary: 0 10px 25px rgba(30, 64, 175, 0.1);
+            --shadow-hover: 0 25px 50px rgba(30, 64, 175, 0.25);
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(30, 64, 175, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(96, 165, 250, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 15, 28, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            padding: 1rem 2rem;
+            background: rgba(10, 15, 28, 0.98);
+            box-shadow: var(--shadow-secondary);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(30, 64, 175, 0.2), transparent);
+            animation: rotate 3s linear infinite;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .brand-container:hover .logo::before {
+            opacity: 1;
+        }
+        
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.025em;
+        }
+        
+        .brand-title {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        .contact-section {
+            padding: 10rem 2rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-hover);
+            background: rgba(30, 64, 175, 0.08);
+        }
+        
+        .contact-card:hover::before {
+            left: 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: var(--transition);
+            transform: translate(-50%, -50%);
+        }
+        
+        .contact-card:hover .contact-icon::before {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .contact-details h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details p,
+        .contact-details a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .contact-details a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(30, 64, 175, 0.1);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-accent);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .social-link:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-secondary);
+        }
+        
+        .social-link:hover::before {
+            left: 0;
+        }
+        
+        .contact-form {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-hover);
+            background: rgba(30, 64, 175, 0.08);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(5, 8, 16, 0.5);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+            background: rgba(5, 8, 16, 0.8);
+        }
+        
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .submit-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1.25rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-primary);
+            background: var(--gradient-accent);
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        .submit-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .submit-btn i {
+            transition: var(--transition);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+        /* Success Message */
+        
+        .success-message {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--success-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-primary);
+            transform: translateX(400px);
+            transition: var(--transition);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .success-message.show {
+            transform: translateX(0);
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            .brand-text {
+                display: none;
+            }
+            .contact-section {
+                padding: 8rem 1rem 2rem;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .contact-card,
+            .contact-form {
+                padding: 1.5rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .success-message {
+                right: 1rem;
+                left: 1rem;
+                transform: translateY(-100px);
+            }
+            .success-message.show {
+                transform: translateY(0);
+            }
+        }
+        
+        .footer {
+            background: var(--darker-bg);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            margin-top: auto;
+            border-top: 1px solid var(--card-border);
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+        
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease forwards;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease forwards;
+        }
+        /* Loading Animation */
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-container">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 50 50">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6" />
+                                <stop offset="100%" style="stop-color:#60a5fa" />
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Background Circle -->
+                        <circle cx="25" cy="25" r="23" fill="#1e40af" opacity="0.1"/>
+                        <g filter="url(#glow)">
+                            <!-- Letter A -->
+                            <path d="
+                                M 25,10 
+                                L 35,35 
+                                L 30,35 
+                                L 27,28 
+                                L 23,28 
+                                L 20,35 
+                                L 15,35 
+                                L 25,10 
+                                M 25,15 
+                                L 22,25 
+                                L 28,25 
+                                L 25,15" 
+                                fill="url(#logoGradient)"
+                            />
+                            <!-- Letter C -->
+                            <path d="
+                                M 33,23
+                                A 8 8 0 1 1 33,27
+                                A 6 6 0 1 0 33,23"
+                                fill="url(#logoGradient)"
+                                transform="translate(-8,0)"
+                            />
+                        </g>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">ADIL CHBANI</div>
+                    <div class="brand-title">Développeur Full Stack</div>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+        <div class="section-header fade-in-up">
+            <h2 class="section-title">Contactez-moi</h2>
+            <p class="section-subtitle">Prêt à collaborer sur votre prochain projet ? Discutons de vos idées et transformons-les en réalité numérique.</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info slide-in-left">
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Adresse Email</h4>
+                            <a href="mailto:adilchbani948@gmail.com">adilchbani948@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Numéro de Téléphone</h4>
+                            <a href="tel:+212777777777">+212 77 77 77 777</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Localisation</h4>
+                            <p>Rabat, Maroc</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Adil-Chbani/Adil-Chbani" class="social-link" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adil-chbani-866734292/" class="social-link" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form slide-in-right" id="contactForm">
+                <div class="form-header">
+                    <h3 class="form-title">Envoyez-moi un Message</h3>
+                    <p class="form-subtitle">Je vous répondrai dans les plus brefs délais</p>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Prénom</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Votre prénom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Nom</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Votre nom" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input type="text" id="subject" name="subject" placeholder="De quoi souhaitez-vous parler ?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Votre Message</label>
+                    <textarea id="message" name="message" placeholder="Décrivez votre projet, vos besoins ou posez-moi vos questions..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Envoyer le Message</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-text">&copy; 2024 ADIL CHBANI. Tous droits réservés. Créé avec passion ❤️</p>
+    </footer>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <span>Message envoyé avec succès !</span>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+
+            // Loading state
+            submitBtn.innerHTML = '<div class="loading"></div><span>Envoi en cours...</span>';
+            submitBtn.disabled = true;
+
+            // Simulate sending (replace with actual form submission logic)
+            setTimeout(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                // Show success message
+                const successMessage = document.getElementById('successMessage');
+                successMessage.classList.add('show');
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+
+                // Reset form
+                this.reset();
+            }, 2000);
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('slide-in-left')) {
+                        entry.target.style.animationDelay = '0.2s';
+                    } else if (entry.target.classList.contains('slide-in-right')) {
+                        entry.target.style.animationDelay = '0.4s';
+                    }
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide-in-left, .slide-in-right, .fade-in-up')
+            .forEach(item => {
+                item.style.opacity = '0';
+                observer.observe(item);
+            });
+
+        // Add smooth scrolling for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Enhanced form validation
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', clearError);
+        });
+
+        function validateField(e) {
+            const field = e.target;
+            const value = field.value.trim();
+
+            // Remove existing error styling
+            field.style.borderColor = '';
+
+            // Basic validation
+            if (field.hasAttribute('required') && !value) {
+                field.style.borderColor = 'var(--error-color)';
+                return false;
+            }
+
+            if (field.type === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    field.style.borderColor = 'var(--error-color)';
+                    return false;
+                }
+            }
+
+            field.style.borderColor = 'var(--success-color)';
+            return true;
+        }
+
+        function clearError(e) {
+            const field = e.target;
+            if (field.style.borderColor === 'var(--error-color)') {
+                field.style.borderColor = '';
+            }
+        }
+
+        // Add typing effect for placeholders
+        const placeholderTexts = {
+            firstName: ['Votre prénom', 'Ex: Ahmed', 'Ex: Sara', 'Ex: Omar'],
+            lastName: ['Votre nom', 'Ex: Benali', 'Ex: Alami', 'Ex: Tazi'],
+            email: ['votre.email@exemple.com', 'contact@monsite.com', 'moi@gmail.com'],
+            subject: ['De quoi souhaitez-vous parler ?', 'Projet web', 'Collaboration', 'Question technique'],
+            message: ['Décrivez votre projet...', 'Parlez-moi de vos besoins...', 'Quelle est votre vision ?']
+        };
+
+        function animatePlaceholder(element, texts) {
+            let currentIndex = 0;
+            let currentText = '';
+            let isDeleting = false;
+            let charIndex = 0;
+
+            function type() {
+                const fullText = texts[currentIndex];
+
+                if (isDeleting) {
+                    currentText = fullText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    currentText = fullText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                element.placeholder = currentText;
+
+                let typeSpeed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIndex === fullText.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    currentIndex = (currentIndex + 1) % texts.length;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            // Start animation only when field is not focused
+            if (document.activeElement !== element) {
+                setTimeout(type, Math.random() * 2000);
+            }
+        }
+
+        // Initialize placeholder animations
+        Object.keys(placeholderTexts).forEach(fieldId => {
+            const element = document.getElementById(fieldId);
+            if (element) {
+                element.addEventListener('focus', () => {
+                    element.placeholder = element.getAttribute('data-original-placeholder') || '';
+                });
+
+                element.addEventListener('blur', () => {
+                    if (!element.value) {
+                        animatePlaceholder(element, placeholderTexts[fieldId]);
+                    }
+                });
+
+                // Store original placeholder
+                element.setAttribute('data-original-placeholder', element.placeholder);
+
+                // Start animation
+                animatePlaceholder(element, placeholderTexts[fieldId]);
+            }
+        });
+
+        // Add particle effect on hover
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: var(--accent-color);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                left: ${x}px;
+                top: ${y}px;
+                animation: particle 1s ease-out forwards;
+            `;
+
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        }
+
+        // Add particle animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes particle {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(-50px) scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add particles on button hover
+        document.querySelector('.submit-btn').addEventListener('mouseenter', function(e) {
+            const rect = this.getBoundingClientRect();
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    createParticle(
+                        rect.left + Math.random() * rect.width,
+                        rect.top + Math.random() * rect.height
+                    );
+                }, i * 100);
+            }
+        });
+
+        // Enhanced loading states for social links
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href === '#' || this.href.includes('#')) {
+                    e.preventDefault();
+
+                    const originalContent = this.innerHTML;
+                    this.innerHTML = '<div class="loading"></div>';
+
+                    setTimeout(() => {
+                        this.innerHTML = originalContent;
+                        // Show message that social link is not configured
+                        const message = document.createElement('div');
+                        message.textContent = 'Lien bientôt disponible';
+                        message.style.cssText = `
+                            position: absolute;
+                            bottom: -30px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background: var(--dark-bg);
+                            color: var(--text-secondary);
+                            padding: 5px 10px;
+                            border-radius: 6px;
+                            font-size: 0.8rem;
+                            white-space: nowrap;
+                            border: 1px solid var(--card-border);
+                        `;
+
+                        this.style.position = 'relative';
+                        this.appendChild(message);
+
+                        setTimeout(() => {
+                            message.remove();
+                        }, 2000);
+                    }, 1000);
+                }
+            });
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Add focus styles for keyboard navigation
+        const keyboardStyle = document.createElement('style');
+        keyboardStyle.textContent = `
+            .keyboard-navigation .contact-card:focus-within,
+            .keyboard-navigation .social-link:focus,
+            .keyboard-navigation .submit-btn:focus,
+            .keyboard-navigation input:focus,
+            .keyboard-navigation textarea:focus {
+                outline: 2px solid var(--accent-color);
+                outline-offset: 2px;
+            }
+        `;
+        document.head.appendChild(keyboardStyle);
+
+        // Add intersection observer for counting animation (if you want to add stats later)
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.textContent = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Performance optimization: Debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Optimized scroll handler
+        const optimizedScrollHandler = debounce(() => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }, 10);
+
+        window.addEventListener('scroll', optimizedScrollHandler);
+
+        // Add copy email functionality
+        document.querySelector('a[href="mailto:adilchbani948@gmail.com"]').addEventListener('click', function(e) {
+            if (navigator.clipboard) {
+                e.preventDefault();
+                navigator.clipboard.writeText('adilchbani948@gmail.com').then(() => {
+                    const message = document.createElement('div');
+                    message.textContent = 'Email copié !';
+                    message.style.cssText = `
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background: var(--success-color);
+                        color: white;
+                        padding: 1rem 2rem;
+                        border-radius: 8px;
+                        z-index: 10001;
+                        font-weight: 600;
+                    `;
+                    document.body.appendChild(message);
+
+                    setTimeout(() => {
+                        message.remove();
+                    }, 2000);
+                });
+            }
+        });
+
+        console.log('🚀 Contact page loaded successfully!');
+        console.log('💼 ADIL CHBANI - Full Stack Developer');
+        console.log('📧 Contact: adilchbani948@gmail.com');
+    </script>
+</body>
+
+</html>
